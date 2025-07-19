@@ -1,1 +1,12 @@
 @import "tailwindcss";
+@font-face {
+  font-family: 'DanaFaNum';
+  src: url('./assets/fonts/Dana/woff2/DanaFaNum-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  direction: rtl;
+  font-family: 'DanaFaNum', sans-serif;
+}
