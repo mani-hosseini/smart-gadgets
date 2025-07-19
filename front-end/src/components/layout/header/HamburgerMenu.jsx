@@ -26,12 +26,10 @@ export default function HamburgerMenu() {
       </button>
       {open && (
         <>
-          {/* Overlay */}
           <div
             className="fixed inset-0 bg-black/50 z-50 transition-opacity duration-200"
             onClick={() => setOpen(false)}
           />
-          {/* Drawer */}
           <nav
             className={
               `fixed top-0 right-0 h-screen w-[80vw] max-w-xs bg-white z-50 gap-y-4 flex flex-col p-4 shadow-2xl transition-transform duration-500 ${open ? 'translate-x-0' : 'translate-x-full'}`
@@ -39,7 +37,6 @@ export default function HamburgerMenu() {
             style={{ minWidth: 240 }}
           >
             <div className="relative flex items-center justify-center mb-4">
-              {/* دکمه بستن */}
               <button
                 onClick={() => setOpen(false)}
                 className="absolute left-0 p-1 rounded-full hover:bg-gray-100 transition"
@@ -47,16 +44,13 @@ export default function HamburgerMenu() {
               >
                 <X size={22} className="text-gray-600" />
               </button>
-              {/* لوگو */}
               <div className="flex-1 flex justify-center">
                 <Logo />
               </div>
             </div>
-            {/* اینپوت جستجو */}
             <div className="mb-4 w-full">
               <SearchBox className="w-full" />
             </div>
-            {/* لینک‌ها */}
             <div className="flex flex-col gap-1 bg-blue-50 rounded-lg ">
               {links.map(({ to, icon, label }, idx) => (
                 <React.Fragment key={to}>
@@ -76,7 +70,6 @@ export default function HamburgerMenu() {
                       {label}
                     </span>
                   </NavLink>
-                  {/* خط زیر هر لینک به جز آخرین */}
                   {idx !== links.length - 1 && (
                     <div className="border-b border-gray-200 mx-3" />
                   )}
