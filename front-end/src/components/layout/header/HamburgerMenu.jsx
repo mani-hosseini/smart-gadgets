@@ -58,6 +58,7 @@ export default function HamburgerMenu() {
                     to={to}
                     className="flex items-center gap-2 rounded-none text-sm"
                     style={{ backgroundColor: 'transparent' }}
+                    onClick={() => setOpen(false)}
                   >
                     <span
                       className={
