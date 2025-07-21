@@ -13,9 +13,9 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <BrowserRouter>
+      <MainContainer>
         <Header />
         <main className="flex-1">
-          <MainContainer>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/shop" element={<Shop />} />
@@ -24,8 +24,8 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/question" element={<Question />} />
             </Routes>
-          </MainContainer>
         </main>
+        </MainContainer>
         <Footer/>
       </BrowserRouter>
     </div>
