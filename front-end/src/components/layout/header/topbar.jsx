@@ -19,8 +19,8 @@ const Topbar = () => {
           <nav className="flex gap-10 max-[898px]:gap-4 text-base md:text-lg lg:text-xl">
             <NavLink to="/" icon={Home}>خانه</NavLink>
             <NavLink to="/shop" icon={ShoppingBag}>فروشگاه</NavLink>
-            <NavLink to="/about" icon={Info}>درباره ما</NavLink>
             <NavLink to="/blog" icon={BookOpen}>بلاگ</NavLink>
+            <NavLink to="/about" icon={Info}>درباره ما</NavLink>
             <NavLink to="/contact" icon={Phone}>تماس</NavLink>
             <NavLink to="/question" icon={HelpCircle}>سوالات متداول</NavLink>
           </nav>

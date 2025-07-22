@@ -4,7 +4,6 @@ import About from "./pages/about";
 import Blog from "./pages/blog";
 import Contact from "./pages/contact";
 import Shop from "./pages/shop";
-import Question from "./pages/question";
 import Header from "./components/layout/header/header";
 import Footer from "./components/layout/footer/footer";
 import MainContainer from "./components/ui/MainContainer";
@@ -22,7 +21,6 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/question" element={<Question />} />
             </Routes>
         </main>
         </MainContainer>
