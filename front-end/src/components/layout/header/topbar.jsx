@@ -13,14 +13,14 @@ const Topbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="w-full flex justify-center pt-4">
-      <div className="w-[90%] flex items-center justify-between py-2 max-[898px]:py-1">
+      <div className="w-[95%] flex items-center justify-between py-2 max-[898px]:py-1">
         <div className="hidden md:flex items-center gap-8 max-[898px]:gap-4">
           <Logo />
           <nav className="flex gap-10 max-[898px]:gap-4 text-base md:text-lg lg:text-xl">
             <NavLink to="/" icon={Home}>خانه</NavLink>
             <NavLink to="/shop" icon={ShoppingBag}>فروشگاه</NavLink>
-            <NavLink to="/about" icon={Info}>درباره ما</NavLink>
             <NavLink to="/blog" icon={BookOpen}>بلاگ</NavLink>
+            <NavLink to="/about" icon={Info}>درباره ما</NavLink>
             <NavLink to="/contact" icon={Phone}>تماس</NavLink>
             <NavLink to="/question" icon={HelpCircle}>سوالات متداول</NavLink>
           </nav>

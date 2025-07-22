@@ -10,11 +10,14 @@ const Heading = ({ title }) => {
         <div className="w-3 h-3 rounded bg-blue-200" />
       </div>
       <div className="flex flex-col">
-        <span className="font-bold text-gray-700 text-lg sm:text-xl md:text-3xl">{title}</span>
+        <span className="font-bold text-gray-700 text-lg sm:text-xl md:text-3xl">
+          {title}
+        </span>
         <span className="mt-1 h-1 w-8 bg-blue-200 rounded-full" />
       </div>
     </div>
   );
 };
+
 
 export default Heading;
