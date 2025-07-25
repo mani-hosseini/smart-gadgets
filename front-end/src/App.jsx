@@ -5,6 +5,7 @@ import Blog from "./pages/blog";
 import Contact from "./pages/contact";
 import Shop from "./pages/shop";
 import Account from "./pages/account";
+import MyAccount from "./pages/my-account";
 import Header from "./components/layout/header/header";
 import Footer from "./components/layout/footer/footer";
 import MainContainer from "./components/ui/MainContainer";
@@ -29,6 +30,7 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
                 <Route path="/account" element={<Account />} />
+                <Route path="/my-account/*" element={<MyAccount />} />
             </Routes>
         </main>
         </MainContainer>

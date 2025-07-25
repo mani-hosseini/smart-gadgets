@@ -5,6 +5,8 @@ import * as yup from "yup";
 import { Eye, EyeOff } from "lucide-react";
 import { toast } from "react-toastify";
 import { useRegister } from "../../hooks/useRegister";
+import { useLogin } from "../../hooks/useLogin";
+import { useNavigate } from "react-router-dom";
 
 const schema = yup.object().shape({
   username: yup.string().required("وارد کردن نام کاربری الزامی است."),
@@ -27,10 +29,30 @@ const RegisterForm = () => {
     mode: "onTouched",
   });
 
-  const mutation = useRegister(
+  const navigate = useNavigate();
+
+  // هوک لاگین برای ورود خودکار بعد از ثبت‌نام
+  const loginMutation = useLogin(
     (data) => {
-      toast.success("ثبت‌نام با موفقیت انجام شد!", { className: "text-right" });
+      localStorage.setItem("user", JSON.stringify(data.user));
+      localStorage.setItem("token", data.token);
+      toast.success("ثبت‌نام و ورود با موفقیت انجام شد!", { className: "text-right" });
       reset();
+      navigate("/my-account", { replace: true });
+    },
+    (error) => {
+      toast.error("ثبت‌نام انجام شد اما ورود خودکار با خطا مواجه شد!", { className: "text-right" });
+      navigate("/login", { replace: true });
+    }
+  );
+
+  const mutation = useRegister(
+    (data, variables) => {
+      // بعد از ثبت‌نام موفق، ورود خودکار انجام شود
+      loginMutation.mutate({
+        email: variables.email,
+        password: variables.password,
+      });
     },
     (error) => {
       if (error?.response?.data?.message) {
@@ -125,15 +147,15 @@ const RegisterForm = () => {
           <button
             type="submit"
             className="w-full cursor-pointer bg-indigo-600 text-white md:py-3 py-2 rounded-md hover:bg-indigo-700 transition-colors"
-            disabled={mutation.isLoading}
+            disabled={mutation.isLoading || loginMutation.isLoading}
           >
-            {mutation.isLoading ? (
+            {(mutation.isLoading || loginMutation.isLoading) ? (
               <span className="flex items-center justify-center gap-2">
                 <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
                 </svg>
-                در حال ارسال...
+                {mutation.isLoading ? "در حال ارسال..." : "در حال ورود..."}
               </span>
             ) : "عضویت"}
           </button>
