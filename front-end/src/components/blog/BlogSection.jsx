@@ -21,7 +21,7 @@ export default function BlogSection() {
       </div>
       <div className="grid grid-cols-2 gap-6 md:hidden mt-6">
         {posts.map((post, idx) => (
-          <BlogCard key={idx} {...post} link={post.link} />
+          <BlogCard key={idx} {...post} size="small" link={post.link} />
         ))}
       </div>
     </div>

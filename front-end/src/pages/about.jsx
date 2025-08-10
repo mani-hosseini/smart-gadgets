@@ -56,9 +56,6 @@ export default function About() {
       </div>مو
       <HeadingButton/>
       <FAQSection />
-      <div className="my-12">
-      <BlogSection />
-      </div>
       </MainContainer>
     </>
   );
