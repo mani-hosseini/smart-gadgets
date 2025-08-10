@@ -10,3 +10,7 @@ body {
   direction: rtl;
   font-family: 'DanaFaNum', sans-serif;
 }
+
+.Toastify__toast {
+  font-family: 'Morabba', 'Dana', 'Tahoma', sans-serif !important;
+}

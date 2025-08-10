@@ -53,12 +53,9 @@ export default function About() {
           showSocials={false}
           className="bg-[#4636f3] rounded-2xl sm:rounded-l-full sm:rounded-br-full flex flex-row flex-wrap items-center justify-center gap-6 px-6 py-6 min-w-[260px] max-w-3xl w-full md:w-1/2 order-2 md:order-1"
         />
-      </div>
+      </div>مو
       <HeadingButton/>
       <FAQSection />
-      <div className="my-12">
-      <BlogSection />
-      </div>
       </MainContainer>
     </>
   );
