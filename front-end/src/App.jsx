@@ -9,6 +9,7 @@ import MyAccount from "./pages/my-account";
 import Header from "./components/layout/header/header";
 import Footer from "./components/layout/footer/footer";
 import MainContainer from "./components/ui/MainContainer";
+import ScrollToTop from "./components/ui/ScrollToTop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -21,6 +22,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
     <div className="flex flex-col min-h-screen">
       <BrowserRouter>
+      <ScrollToTop />
       <MainContainer>
         <Header />
         <main className="flex-1">

@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const faqs = [
   {
@@ -19,9 +20,44 @@ const faqs = [
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
   const contentRefs = useRef([]);
+  const location = useLocation();
+  const faqRef = useRef(null);
+
+  const scrollToFAQ = () => {
+    if (faqRef.current) {
+      faqRef.current.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+      
+      // Open the first FAQ item for better UX
+      setOpenIndex(0);
+    }
+  };
+
+  useEffect(() => {
+    // Check if the URL has a hash for FAQ section
+    if (location.hash === '#faq' && faqRef.current) {
+      scrollToFAQ();
+    }
+  }, [location.hash]);
+
+  // Listen for custom events when FAQ link is clicked from same page
+  useEffect(() => {
+    const handleFAQClick = () => {
+      scrollToFAQ();
+    };
+
+    window.addEventListener('faq-click', handleFAQClick);
+    return () => window.removeEventListener('faq-click', handleFAQClick);
+  }, []);
 
   return (
-    <div id="faq-section" className="flex flex-col md:flex-row items-center justify-around gap-8 my-12 scroll-mt-24">
+    <div 
+      ref={faqRef}
+      id="faq" 
+      className="flex flex-col md:flex-row items-center justify-around gap-8 my-12 scroll-mt-24"
+    >
       <div className="w-full md:w-1/2 flex justify-center order-2 md:order-1">
         <img
           src="/about/smart-watches2.png"
