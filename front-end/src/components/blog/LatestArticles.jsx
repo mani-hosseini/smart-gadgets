@@ -7,7 +7,6 @@ const LatestArticles = () => {
 
   return (
     <div className="space-y-6 sm:space-y-4">
-      <h3 className="text-base sm:text-lg font-bold text-gray-800 text-right mb-3 sm:mb-4">جدیدترین مطالب</h3>
       <div className="space-y-6 sm:sace-y-4">
         {latestPosts.map((post, index) => (
           <Link key={index} to={post.link} className="block rounded-lg p-2 -m-2 transition-colors">

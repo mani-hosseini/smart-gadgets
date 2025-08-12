@@ -11,6 +11,15 @@ const iconClass = "text-blue-600";
 
 const Topbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleFAQClick = (e) => {
+    // If we're already on the about page, dispatch custom event instead of navigation
+    if (window.location.pathname === '/about') {
+      e.preventDefault();
+      window.dispatchEvent(new Event('faq-click'));
+    }
+  };
+
   return (
     <div className="w-full flex justify-center pt-4">
       <div className="w-[95%] flex items-center justify-between py-2 max-[898px]:py-1">
@@ -22,7 +31,7 @@ const Topbar = () => {
             <NavLink to="/blog" icon={BookOpen}>بلاگ</NavLink>
             <NavLink to="/about" icon={Info}>درباره ما</NavLink>
             <NavLink to="/contact" icon={Phone}>تماس</NavLink>
-            <NavLink to="/question" icon={HelpCircle}>سوالات متداول</NavLink>
+            <NavLink to="/about#faq" icon={HelpCircle} onClick={handleFAQClick}>سوالات متداول</NavLink>
           </nav>
         </div>
         <div className="flex md:hidden items-center justify-between w-full">
