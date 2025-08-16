@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductCard({ product }) {
+  const navigate = useNavigate();
   const {
     name,
     price,
@@ -12,8 +14,15 @@ export default function ProductCard({ product }) {
   // Calculate discount percentage if not provided
   const discountPercentage = discount || (originalPrice ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0);
 
+  const handleProductClick = () => {
+    navigate(`/product/${product.id}`);
+  };
+
   return (
-    <div className="bg-[#f7f7f7] rounded-2xl p-4 transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+    <div 
+      className="bg-[#f7f7f7] rounded-2xl p-4 transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+      onClick={handleProductClick}
+    >
       {/* Product Image */}
       <div className="relative mb-3">
         <div className="w-full h-48 bg-white rounded-xl flex items-center justify-center overflow-hidden">

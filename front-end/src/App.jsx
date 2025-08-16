@@ -14,6 +14,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import BlogPost from "./pages/BlogPost";
+import ProductDetails from "./components/shop/ProductDetails";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/shop" element={<Shop />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />

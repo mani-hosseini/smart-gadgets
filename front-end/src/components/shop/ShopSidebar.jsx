@@ -10,7 +10,6 @@ export default function ShopSidebar() {
 
   return (
     <div className="bg-[#f6f5ff] p-5 space-y-6 rounded-2xl">
-      {/* Search Filter */}
       <SearchFilter />
       
       {/* Price Range Filter */}
