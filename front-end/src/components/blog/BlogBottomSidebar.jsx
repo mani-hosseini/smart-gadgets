@@ -55,18 +55,13 @@ const BlogBottomSidebar = () => {
 
   return (
     <div className="bg-[#f6f5ff] rounded-xl p-4 sm:p-5">
-      {/* Latest posts list */}
       <div className="mb-6">
         <LatestArticles />
       </div>
-
-      {/* Follow us header */}
       <div className="flex items-center justify-between mb-3">
         <h2 className="text-base font-bold text-gray-800">مارو دنبال کنید</h2>
         <span className="h-1 w-6 bg-gray-300 rounded-full" />
       </div>
-
-      {/* Social follow bars */}
       <div className="space-y-3">
         {socialPlatforms.map((platform, index) => (
           <SocialFollowBar

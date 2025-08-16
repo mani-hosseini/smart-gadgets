@@ -4,7 +4,6 @@ import postsData from "./postsData";
 
 const LatestArticles = () => {
   const latestPosts = postsData.slice(0, 4);
-
   return (
     <div className="space-y-6 sm:space-y-4">
       <div className="space-y-6 sm:sace-y-4">
