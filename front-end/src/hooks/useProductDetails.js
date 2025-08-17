@@ -3,8 +3,8 @@ import { products } from '../components/shop/productsData';
 import { WARRANTIES } from '../constants/productConstants';
 
 export const useProductDetails = (productId) => {
-  const [selectedColor, setSelectedColor] = useState('purple');
-  const [selectedWarranty, setSelectedWarranty] = useState('18');
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedWarranty, setSelectedWarranty] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
   const product = useMemo(() => {

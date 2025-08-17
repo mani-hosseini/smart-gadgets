@@ -36,6 +36,10 @@ const LoginForm = () => {
       // فرض بر این است که اطلاعات کاربر در data.user و توکن در data.token است
       localStorage.setItem("user", JSON.stringify(data.user));
       localStorage.setItem("token", data.token);
+      
+      // Dispatch custom event to notify cart context about user login
+      window.dispatchEvent(new CustomEvent('userLogin', { detail: { userId: data.user.id } }));
+      
       toast.success("ورود با موفقیت انجام شد!", { className: "text-right" });
       reset();
       navigate("/my-account", { replace: true });
