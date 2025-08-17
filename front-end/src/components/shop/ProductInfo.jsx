@@ -10,13 +10,8 @@ export default function ProductInfo({
   quantity,
   setQuantity,
   finalPrice,
+  handleAddToCart,
 }) {
-  React.useEffect(() => {
-    if (!selectedWarranty) {
-      setSelectedWarranty("18");
-    }
-  }, [selectedWarranty, setSelectedWarranty]);
-
   return (
     <div className="h-full flex flex-col gap-4 sm:gap-6">
       <div>
@@ -124,6 +119,11 @@ export default function ProductInfo({
           ))}
         </div>
       </div>
+      {(!selectedColor || !selectedWarranty) && (
+        <div className="text-xs text-orange-600 text-right bg-orange-50 p-2 rounded-lg border border-orange-200">
+          ⚠️ لطفاً رنگ و گارانتی محصول را انتخاب کنید
+        </div>
+      )}
       <div className="flex gap-2 bg-white p-2 sm:p-3 rounded-lg">
         <input
           type="number"
@@ -132,7 +132,15 @@ export default function ProductInfo({
           onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value)))}
           className="w-14 sm:w-16 h-9 sm:h-10 bg-[#f6f5ff] rounded-lg text-center text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-[#3b82f6] text-xs sm:text-sm"
         />
-        <button className="flex-1 bg-[#3b82f6] text-white py-2 px-3 sm:px-4 rounded-xl font-bold text-sm sm:text-base hover:bg-[#2563eb] transition-colors">
+        <button 
+          disabled={!selectedColor || !selectedWarranty}
+          onClick={handleAddToCart}
+          className={`flex-1 py-2 px-3 sm:px-4 rounded-xl font-bold text-sm sm:text-base transition-colors ${
+            selectedColor && selectedWarranty
+              ? 'bg-[#3b82f6] text-white hover:bg-[#2563eb]' 
+              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+          }`}
+        >
           افزودن به سبد خرید
         </button>
       </div>

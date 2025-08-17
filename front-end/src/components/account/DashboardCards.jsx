@@ -16,9 +16,14 @@ export default function DashboardCards() {
 
   const handleCardClick = (section) => {
     if (section === "logout") {
+      // Dispatch custom event to notify cart context about user logout
+      window.dispatchEvent(new CustomEvent('userLogout'));
+      
+      // Clear user data
       localStorage.removeItem("user");
       localStorage.removeItem("token");
-      navigate("/login", { replace: true });
+      
+      navigate("/account", { replace: true });
     } else if (section === "favorites") {
       navigate("/my-account/favorites");
     } else {

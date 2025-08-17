@@ -19,7 +19,14 @@ export default function Sidebar({ active, onSectionChange }) {
             ${active === item.value ? "bg-indigo-600 text-white" : "bg-white text-indigo-700 hover:bg-indigo-100"}`}
           onClick={() => {
             if (item.value === "logout") {
+              // Dispatch custom event to notify cart context about user logout
+              window.dispatchEvent(new CustomEvent('userLogout'));
+              
+              // Clear user data
               localStorage.removeItem("user");
+              localStorage.removeItem("token");
+              
+              // Navigate to account page
               window.location.href = "/account";
             } else {
               onSectionChange(item.value);
