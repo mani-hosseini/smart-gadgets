@@ -5,36 +5,36 @@ const columns = [
   {
     title: "لینک‌های مفید",
     links: [
-      { label: "خانه", href: "#" },
-      { label: "فروشگاه", href: "#" },
+      { label: "خانه", href: "/" },
+      { label: "فروشگاه", href: "/shop" },
     ],
   },
   {
     title: "خدمات مشتریان",
     links: [
-      { label: "سوالات متداول", href: "#" },
-      { label: "پیگیری سفارش", href: "#" },
+      { label: "سبد خرید", href: "/cart" },
+      { label: "حساب کاربری", href: "/my-account" },
     ],
   },
   {
     title: "راهنما",
     links: [
-      { label: "نحوه خرید", href: "#" },
-      { label: "قوانین سایت", href: "#" },
+      { label: "درباره ما", href: "/about" },
+      { label: "تماس با ما", href: "/contact" },
     ],
   },
   {
     title: "دسترسی سریع",
     links: [
-      { label: "سبد خرید", href: "#" },
-      { label: "محصولات جدید", href: "#" },
+      { label: "وبلاگ", href: "/blog" },
+      { label: "ورود / ثبت‌نام", href: "/account" },
     ],
   },
   {
     title: "اطلاعات",
     links: [
-      { label: "همکاری با ما", href: "#" },
-      { label: "تماس با مدیریت", href: "#" },
+      { label: "تکمیل خرید", href: "/checkout" },
+      { label: "محصولات جدید", href: "/shop" },
     ],
   },
 ];
@@ -42,8 +42,8 @@ const columns = [
 export default function Bottomsection() {
   return (
     <div className="bg-white mt-8 sm:mt-10 py-6 sm:py-8 w-[96%] sm:w-[90%] mx-auto rounded-t-xl">
-      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-8 md:gap-x-16 lg:gap-x-24">
-        <div className="w-full flex flex-wrap justify-center items-stretch gap-4 sm:gap-8 md:gap-x-16 lg:gap-x-24">
+      <div className="flex flex-col items-center justify-center w-full gap-4 md:flex-row sm:gap-8 md:gap-x-16 lg:gap-x-24">
+        <div className="flex flex-wrap items-stretch justify-center w-full gap-4 sm:gap-8 md:gap-x-16 lg:gap-x-24">
           {columns.map((col, i) => (
             <div
               key={i}

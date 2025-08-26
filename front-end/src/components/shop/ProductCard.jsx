@@ -24,17 +24,17 @@ export default function ProductCard({ product }) {
       onClick={handleProductClick}
     >
       {/* Product Image */}
-      <div className="relative mb-3 flex-grow">
-        <div className="w-full h-40 md:h-56 bg-white rounded-xl flex items-center justify-center overflow-hidden">
+      <div className="relative flex-grow mb-3">
+        <div className="flex items-center justify-center w-full h-40 overflow-hidden bg-white md:h-56 rounded-xl">
                            {image ? (
                    <img
                      src={image}
                      alt={name}
-                     className="w-full h-full object-contain"
+                     className="object-contain w-full h-full"
                    />
                  ) : (
-            <div className="w-12 h-12 md:w-16 md:h-16 bg-gray-300 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 md:w-8 md:h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center justify-center w-12 h-12 bg-gray-300 rounded-full md:w-16 md:h-16">
+              <svg className="w-6 h-6 text-gray-400 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
               </svg>
             </div>
@@ -50,7 +50,7 @@ export default function ProductCard({ product }) {
       </div>
 
       {/* Product Title */}
-      <h3 className="text-gray-900 font-medium text-xs md:text-sm mb-3 text-right leading-tight">
+      <h3 className="mb-3 text-xs font-medium leading-tight text-right text-gray-900 md:text-sm">
         {name}
       </h3>
 
@@ -60,15 +60,15 @@ export default function ProductCard({ product }) {
         <div className="text-left">
           {originalPrice && originalPrice > price ? (
             <div className="flex items-center gap-2">
-              <span className="text-gray-500 text-xs line-through">
+              <span className="text-xs text-gray-500 line-through">
                 {originalPrice.toLocaleString()} <span className="text-gray-400">تومان</span>
               </span>
-              <span className="text-gray-900 font-bold text-xs md:text-sm">
+              <span className="text-xs font-bold text-gray-900 md:text-sm">
                 {price.toLocaleString()} <span className="text-gray-400">تومان</span>
               </span>
             </div>
           ) : (
-            <span className="text-gray-900 font-bold text-xs md:text-sm">
+            <span className="text-xs font-bold text-gray-900 md:text-sm">
               {price.toLocaleString()} <span className="text-gray-400">تومان</span>
             </span>
           )}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function FooterLinkColumn({ title, links }) {
   return (
@@ -8,7 +9,12 @@ export default function FooterLinkColumn({ title, links }) {
         {links.map((link, i) => (
           <li key={i} className="flex items-center gap-1 sm:gap-2">
             <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-blue-500 inline-block"></span>
-            <a href={link.href} className="text-xs sm:text-sm md:text-base text-gray-600 hover:text-blue-600 transition">{link.label}</a>
+            <Link 
+              to={link.href} 
+              className="text-xs sm:text-sm md:text-base text-gray-600 hover:text-blue-600 transition-colors duration-200"
+            >
+              {link.label}
+            </Link>
           </li>
         ))}
       </ul>

@@ -8,6 +8,7 @@ import Account from "./pages/account";
 import MyAccount from "./pages/my-account";
 import Cart from "./pages/cart";
 import Checkout from "./pages/checkout";
+import NotFound from "./pages/NotFound";
 import Header from "./components/layout/header/header";
 import Footer from "./components/layout/footer/footer";
 import MainContainer from "./components/ui/MainContainer";
@@ -43,6 +44,8 @@ function App() {
                   <Route path="/account" element={<Account />} />
                   <Route path="/my-account/*" element={<MyAccount />} />
                   <Route path="/checkout" element={<Checkout />} />
+                  {/* 404 Route - Must be last */}
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
             </MainContainer>
