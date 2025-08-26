@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 export default function HeadingButton({ title, buttonText, buttonLink }) {
   return (
-    <div className="flex items-center justify-between my-12">
+    <div className="flex items-center justify-between ">
       <Heading title={title} />
       <Link
         to={buttonLink}
-        className="md:flex hidden px-4 py-2 bg-white text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white transition rounded-full"
+        className="hidden px-4 py-2 text-blue-700 transition bg-white border border-blue-700 rounded-full md:flex hover:bg-blue-700 hover:text-white"
       >
         {buttonText}
       </Link>

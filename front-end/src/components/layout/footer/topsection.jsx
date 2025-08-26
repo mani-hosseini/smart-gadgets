@@ -17,25 +17,25 @@ export default function Topsection() {
       </div>
       <div className="flex-1 flex flex-col md:flex-row gap-2 sm:gap-4 items-start justify-between mt-2 sm:mt-4 md:mt-0">
         <div className="flex flex-col gap-4 sm:gap-6 items-start w-full md:w-auto">
-          <div className="flex items-center gap-1 sm:gap-2">
-            <span className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-white text-gray-400 text-lg sm:text-xl transition-colors duration-200 hover:bg-red-100 hover:text-red-400 cursor-pointer">
+          <a href="tel:021-1234567" className="flex items-center gap-1 sm:gap-2 group">
+            <span className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-white text-gray-400 text-lg sm:text-xl transition-colors duration-200 group-hover:bg-red-100 group-hover:text-red-400 cursor-pointer">
               <Phone size={18} className="sm:size-5" />
             </span>
-            <span className="text-xs sm:text-sm text-gray-600 font-bold">پشتیبانی: 021-1234567</span>
-          </div>
-          <div className="flex items-center gap-1 sm:gap-2">
-            <span className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-white text-gray-400 text-lg sm:text-xl transition-colors duration-200 hover:bg-red-100 hover:text-red-400 cursor-pointer">
+            <span className="text-xs sm:text-sm text-gray-600 font-bold group-hover:text-red-600 transition-colors duration-200">پشتیبانی: 021-1234567</span>
+          </a>
+          <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 sm:gap-2 group">
+            <span className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-white text-gray-400 text-lg sm:text-xl transition-colors duration-200 group-hover:bg-red-100 group-hover:text-red-400 cursor-pointer">
               <MapPin size={18} className="sm:size-5" />
             </span>
-            <span className="text-xs sm:text-sm text-gray-600">تهران، میدان ونک خیابان برزیل روبروی دانشگاه فنی حرفه ای تهران پلاک ۱۲۳</span>
-          </div>
+            <span className="text-xs sm:text-sm text-gray-600 group-hover:text-red-600 transition-colors duration-200">تهران، میدان ونک خیابان برزیل روبروی دانشگاه فنی حرفه ای تهران پلاک ۱۲۳</span>
+          </a>
           <div className="flex items-center gap-1 sm:gap-2">
-            <span className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-white text-gray-400 text-lg sm:text-xl transition-colors duration-200 hover:bg-red-100 hover:text-red-400 cursor-pointer">
+            <a href="mailto:info@example.com" className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-white text-gray-400 text-lg sm:text-xl transition-colors duration-200 hover:bg-red-100 hover:text-red-400 cursor-pointer">
               <Mail size={18} className="sm:size-5" />
-            </span>
+            </a>
             <div className="flex flex-col text-xs sm:text-sm text-gray-600 gap-0.5">
-              <span>info@example.com</span>
-              <span>support@example.com</span>
+              <a href="mailto:info@example.com" className="hover:text-red-600 transition-colors duration-200">info@example.com</a>
+              <a href="mailto:support@example.com" className="hover:text-red-600 transition-colors duration-200">support@example.com</a>
             </div>
           </div>
         </div>

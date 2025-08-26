@@ -7,63 +7,18 @@ import HeadingButton from "../shared/HeadingButton";
 import ProductDisplay from "./ProductDisplay";
 import FeatureList from "./FeatureList";
 import NavigationArrows from "./NavigationArrows";
-
+import { products } from "../shop/productsData";
 
 const NewestProductsSection = () => {
-  // داده‌های محصولات جدید
-  const newestProducts = [
-    {
-      id: 1,
-      name: "هدفون بی سیم سامسونگ مدل 2 Galaxy Buds",
-      image: "/shop/product-pic1.jpg",
-      leftFeatures: [
-        "هدفون بی سیم",
-        "محصولی از شرکت سامسونگ",
-        "کیفیت فوق العاده",
-        "بهره مندی از تکنولوژی منحصر به فرد و به روز"
-      ],
-      rightFeatures: [
-        "دارای طراحی زیبا",
-        "امکان اتصال همزمان به چند دستگاه",
-        "در رنگ بندی های متنوع و زیاد",
-        "هدفون بی سیمی که مدت ها منتظرش بودید"
-      ]
-    },
-    {
-      id: 2,
-      name: "ساعت هوشمند اپل واچ سری 9",
-      image: "/shop/product-pic2.jpg",
-      leftFeatures: [
-        "نمایشگر همیشه روشن",
-        "تشخیص سقوط و تصادف",
-        "پایش سلامت پیشرفته",
-        "شارژ سریع و بی‌سیم"
-      ],
-      rightFeatures: [
-        "طراحی زیبا و مدرن",
-        "سازگاری کامل با iOS",
-        "آب‌بندی IP6X",
-        "باتری با عمر طولانی"
-      ]
-    },
-    {
-      id: 3,
-      name: "گوشی هوشمند سامسونگ گلکسی S24",
-      image: "/shop/product-pic3.jpg",
-      leftFeatures: [
-        "پردازنده قدرتمند اسنپدراگون",
-        "دوربین 200 مگاپیکسلی",
-        "نمایشگر 6.8 اینچی",
-        "شارژ 45 واتی"
-      ],
-      rightFeatures: [
-        "طراحی مدرن و زیبا",
-        "نمایشگر Dynamic AMOLED",
-        "سازگاری با 5G",
-        "سیستم عامل One UI 6"
-      ]
-    }
-  ];
+  // انتخاب 3 محصول جدید از داده‌های واقعی سایت
+  const newestProducts = products
+    .filter(product => product.isNew)
+    .slice(0, 3);
+
+  // اگر محصول جدیدی نباشد، 3 محصول آخر را انتخاب کن
+  const displayProducts = newestProducts.length >= 3 
+    ? newestProducts 
+    : products.slice(-3);
 
   return (
     <section className="py-8 bg-white md:py-12 lg:py-16">
@@ -95,13 +50,18 @@ const NewestProductsSection = () => {
             allowTouchMove={true}
             grabCursor={true}
           >
-            {newestProducts.map((product) => (
+            {displayProducts.map((product) => (
               <SwiperSlide key={product.id}>
                 <div className="flex flex-col items-center gap-8 lg:grid lg:grid-cols-3 lg:items-center lg:gap-8">
                   {/* Left Feature List */}
                   <div className="order-2 w-full lg:col-span-1 lg:order-1">
                     <FeatureList 
-                      features={product.leftFeatures}
+                      features={[
+                        `برند: ${product.brand}`,
+                        `دسته‌بندی: ${product.category}`,
+                        `امتیاز: ${product.rating}/5`,
+                        `تعداد نظرات: ${product.reviews}`
+                      ]}
                       position="left"
                     />
                   </div>
@@ -118,7 +78,12 @@ const NewestProductsSection = () => {
                   {/* Right Feature List */}
                   <div className="order-3 w-full lg:col-span-1 lg:order-3">
                     <FeatureList 
-                      features={product.rightFeatures}
+                      features={[
+                        `قیمت: ${product.price.toLocaleString()} تومان`,
+                        product.originalPrice ? `قیمت اصلی: ${product.originalPrice.toLocaleString()} تومان` : '',
+                        product.discount ? `تخفیف: ${product.discount}%` : '',
+                        `فروش: ${product.sales} عدد`
+                      ].filter(Boolean)}
                       position="right"
                     />
                   </div>
