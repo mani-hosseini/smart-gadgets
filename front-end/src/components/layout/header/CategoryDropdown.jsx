@@ -34,7 +34,7 @@ const CategoryDropdown = () => {
       </button>
       {open && (
         <div
-          className="absolute right-0 mt-2 z-10 bg-[#e4e2fe] text-indigo-600 rounded-2xl shadow-lg overflow-hidden w-full md:w-auto"
+          className="absolute right-0 mt-2 z-50 bg-[#e4e2fe] text-indigo-600 rounded-2xl shadow-lg overflow-hidden w-full md:w-auto"
           style={{ width: width || undefined, minWidth: 160 }}
         >
           <div className="flex flex-col md:flex-row md:flex-wrap md:gap-0 md:space-x-0 md:space-y-0 md:whitespace-nowrap">

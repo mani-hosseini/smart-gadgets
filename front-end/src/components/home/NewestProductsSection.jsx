@@ -45,7 +45,7 @@ const NewestProductsSection = () => {
             }}
             autoplay={false}
             loop={true}
-            className="w-full"
+            className="w-full swiper-newest"
             dir="rtl"
             allowTouchMove={true}
             grabCursor={true}
@@ -72,7 +72,7 @@ const NewestProductsSection = () => {
                       product={product}
                     />
                     {/* Navigation Arrows positioned next to the product image */}
-                    <NavigationArrows />
+                    <NavigationArrows swiperId="newest" />
                   </div>
 
                   {/* Right Feature List */}

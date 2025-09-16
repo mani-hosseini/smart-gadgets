@@ -29,16 +29,16 @@ const ProductSlider = () => {
           disableOnInteraction: false,
         }}
         loop={true}
-        className="w-full h-96"
+        className="w-full h-96 swiper-main"
         dir="rtl"
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className="flex justify-center items-center h-full">
+            <div className="flex items-center justify-center h-full">
               <img 
                 src={slide.src} 
                 alt={slide.alt}
-                className="w-80 h-80 object-contain transform -rotate-12"
+                className="object-contain w-48 h-48 transform sm:w-64 sm:h-64 md:w-80 md:h-80 -rotate-12"
               />
             </div>
           </SwiperSlide>
