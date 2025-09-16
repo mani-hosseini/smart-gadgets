@@ -10,7 +10,7 @@ export default function BrandFilter() {
     <div className="space-y-3">
       <div className="flex items-center gap-3">
         <div className="w-1 h-6 bg-blue-400 rounded-full"></div>
-        <h3 className="font-bold text-lg text-gray-700">برندها</h3>
+        <h3 className="text-lg font-bold text-gray-700">برندها</h3>
       </div>
       
       <div className="grid grid-cols-2 gap-2">
